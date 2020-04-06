@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 29          //compile_sdk_version.toInteger()
+    buildToolsVersion "28.0.3"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //    ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME:ProjectName, AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:29.0.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
+
+    implementation 'com.tencent:mmkv:1.0.23'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+
+    //    ARouter配置
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+    if (isDebugModule.toBoolean()) {
+        runtimeOnly project(':login_module')
+    }
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+}

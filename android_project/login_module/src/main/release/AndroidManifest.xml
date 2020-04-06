@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.a.login_module">
+
+    <application>
+        <activity android:name=".LoginMainActivity" />
+        <activity android:name=".MainHomeActivity" />
+    </application>
+
+</manifest>

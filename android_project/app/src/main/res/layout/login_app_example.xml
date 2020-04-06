@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center_horizontal"
+        android:text="登录demo"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/id_login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:onClick="login"
+        android:text="登录"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toComponentLogin"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="跳转组件页面"
+        android:textColor="@color/colorPrimaryDark" />
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="button1">Button1</string>
+
+    <!--    自定义LevelView的属性，format为类型-->
+    <declare-styleable name="LevelView">
+        <!--        限制圈-->
+        <attr name="limitRadius" format="dimension" />
+        <attr name="limitColor" format="color" />
+        <attr name="limitCircleWidth" format="dimension" />
+        <!--        移动圈-->
+        <attr name="bubbleRadius" format="dimension" />
+        <attr name="bubbleColor" format="color" />
+        <!--        标准圈-->
+        <attr name="bubbleRuleColor" format="color" />
+        <attr name="bubbleRuleWidth" format="dimension" />
+        <attr name="bubbleRuleRadius" format="dimension" />
+        <!--        成功颜色-->
+        <attr name="horizontalColor" format="color" />
+    </declare-styleable>
+
+    <string name="vertical">垂直</string>
+    <string name="horizontal">水平</string>
+
+</resources>

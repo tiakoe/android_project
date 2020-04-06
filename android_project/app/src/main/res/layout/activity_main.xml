@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MissingConstraints">
+
+
+    <Button
+        android:id="@+id/id_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button3"
+        tools:ignore="ExtraText"></Button>
+
+    <Button
+        android:id="@+id/id_button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button4"
+        app:layout_constraintLeft_toRightOf="@id/id_button3"
+        tools:ignore="ExtraText"></Button>
+
+    <LinearLayout
+        android:id="@+id/id_scroll_conflict"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/id_button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:onClick="showScrollConflict"
+            android:id="@+id/id_scroll_example"
+            android:text="滑动冲突例子"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:id="@+id/id_button_sensor_01"
+            android:onClick="showSensorEvent"
+            android:text="传感器"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+        <Button
+            android:id="@+id/id_btn_component_01"
+            android:onClick="showLoginActivity"
+            android:text="组件跳转"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </Button>
+
+
+    </LinearLayout>
+
+    <!--    <View-->
+    <!--        android:id="@+id/id_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_goneMarginTop="120dp"></View>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
