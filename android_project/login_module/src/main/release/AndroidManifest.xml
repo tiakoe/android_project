@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.a.login_module">
 
-    <application>
+    <application android:testOnly="false">
         <activity android:name=".LoginMainActivity" />
         <activity android:name=".MainHomeActivity" />
     </application>

@@ -4,29 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
+    android:layout_gravity="center"
     tools:context=".MainActivity"
     tools:ignore="MissingConstraints">
 
 
-    <Button
-        android:id="@+id/id_button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button3"
-        tools:ignore="ExtraText"></Button>
-
-    <Button
-        android:id="@+id/id_button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button4"
-        app:layout_constraintLeft_toRightOf="@id/id_button3"
-        tools:ignore="ExtraText"></Button>
-
     <LinearLayout
         android:id="@+id/id_scroll_conflict"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/id_button3"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -35,7 +22,7 @@
             android:id="@+id/id_scroll_example"
             android:text="滑动冲突例子"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/id_button_sensor_01"

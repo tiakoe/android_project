@@ -1,13 +1,17 @@
 package com.example.myapplication;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.myapplication.function_pages.LoginAppActivity;
 import com.example.myapplication.function_pages.MyMmkvActivity;
 import com.example.myapplication.function_pages.ScrollConflictActivity;
@@ -24,12 +28,37 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initARouter();
         ButterKnife.bind(this);
         //        ContextCompat.checkSelfPermission(activity, permission);
         //        checkSelfPermission();
         //        requestPermissions();
 
         mmkvTest();
+    }
+
+    private boolean isDebug() {
+        Context context = getApplicationContext();
+        if (context.getPackageName() == null) {
+            return false;
+        }
+        try {
+            ApplicationInfo ai =
+                    context.getPackageManager().getApplicationInfo(context.getPackageName(), 0);
+            return (ai.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private void initARouter() {
+
+        if (isDebug()) {
+            ARouter.openLog();     // 打印日志
+            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+        }
+        ARouter.init(getApplication());
     }
 
     public void mmkvTest() {
@@ -42,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
         // 获取默认的全局实例
         MMKV kv = MMKV.defaultMMKV();
         // 根据业务区别存储, 附带一个自己的 ID
-        System.out.println(kv.getAll());
+
+
         MMKV kvid = MMKV.mmkvWithID("MyID");
-        System.out.println(kvid.getAll());
 
         // 多进程同步支持
         MMKV kvd = MMKV.mmkvWithID("MyID", MMKV.MULTI_PROCESS_MODE);
@@ -63,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         kv.encode("obj", new MyMmkvActivity().toString());
         String obj = kv.decodeString("obj");
-        System.out.println(obj);
+        Log.d("obj", obj);
     }
 
     public void showScrollConflict(View view) {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/id_swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,7 +21,7 @@
                 android:gravity="center"
                 android:text="这是头部" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/id_recycler_view"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
@@ -35,5 +35,5 @@
                 android:text="这是尾部" />
 
         </LinearLayout>
-    </android.support.v7.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

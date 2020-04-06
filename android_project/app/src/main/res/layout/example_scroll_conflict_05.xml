@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".scroll_conflict.ExampleActivity05">
 
-    <android.support.v7.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/id_view_pager_050"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

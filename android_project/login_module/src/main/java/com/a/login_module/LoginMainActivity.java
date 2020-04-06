@@ -48,7 +48,7 @@ public class LoginMainActivity extends AppCompatActivity {
         });
     }
 
-    public void toLoginUp() {
+    public void toLoginUp(View view) {
 
     }
 

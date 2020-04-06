@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         tools:targetApi="p"
+        android:testOnly="false"
         tools:ignore="AllowBackup">
         <activity android:name=".MainActivity">
             <intent-filter>
