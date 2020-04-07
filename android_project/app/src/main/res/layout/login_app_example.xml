@@ -33,7 +33,7 @@
         android:onClick="toMain"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:text="返回"
+        android:text="跳转主页"
         android:textColor="@color/colorPrimaryDark" />
 
     <Button

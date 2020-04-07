@@ -3,7 +3,8 @@
 
     <application>
         <activity android:name=".LoginMainActivity" />
-        <activity android:name=".MainHomeActivity" />
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".SignUpActivity" />
     </application>
 
 </manifest>
