@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29          //compile_sdk_version.toInteger()
-    buildToolsVersion "28.0.3"
+    buildToolsVersion "29.0.3"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -22,7 +22,7 @@ android {
         //    ARouter配置
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME:ProjectName, AROUTER_GENERATE_DOC: "enable"]
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
             }
         }
 
@@ -45,7 +45,6 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 
 
-
     implementation 'com.tencent:mmkv:1.0.23'
 
     implementation 'com.squareup.retrofit2:retrofit:2.7.0'
@@ -56,14 +55,11 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
-
-    //    ARouter配置
-    implementation 'com.alibaba:arouter-api:1.5.0'
+//    implementation 'com.alibaba:arouter-api:1.5.0'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    implementation project(':base_module')
+    runtimeOnly project(':login_module')
 
-    if (isDebugModule.toBoolean()) {
-        runtimeOnly project(':login_module')
-    }
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
@@ -71,3 +67,8 @@ dependencies {
 
 
 }
+
+// java控制台输出中文乱码
+//tasks.withType(JavaCompile) {
+//    options.encoding = "UTF-8"
+//}

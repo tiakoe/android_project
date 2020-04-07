@@ -1,2 +1,3 @@
-include ':app', ':login_module'
+include ':app',':base_module',':login_module'
 rootProject.name='My Application'
+

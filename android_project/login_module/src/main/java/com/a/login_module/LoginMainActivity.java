@@ -13,7 +13,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 
-@Route(path = "/com/loginMainActivity")
+@Route(path = "/account/loginMainActivity")
 public class LoginMainActivity extends AppCompatActivity {
 
 
@@ -25,7 +25,7 @@ public class LoginMainActivity extends AppCompatActivity {
 
     public void toLoginIn(View view) {
 
-        ARouter.getInstance().build("/com/mainHome").navigation(this, new NavigationCallback() {
+        ARouter.getInstance().build("/account/mainHome").navigation(this, new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {
                 Log.d("login_module", "onFound");

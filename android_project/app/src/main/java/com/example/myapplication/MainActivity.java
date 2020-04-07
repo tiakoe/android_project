@@ -11,6 +11,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.myapplication.function_pages.LoginAppActivity;
 import com.example.myapplication.function_pages.MyMmkvActivity;
@@ -20,7 +21,7 @@ import com.tencent.mmkv.MMKV;
 
 import butterknife.ButterKnife;
 
-
+@Route(path = "/com/mainActivity")
 public class MainActivity extends AppCompatActivity {
 
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initARouter();
+        //        initARouter();
         ButterKnife.bind(this);
         //        ContextCompat.checkSelfPermission(activity, permission);
         //        checkSelfPermission();

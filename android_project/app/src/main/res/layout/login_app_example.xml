@@ -26,6 +26,16 @@
         android:text="登录"
         android:textColor="@color/colorPrimaryDark" />
 
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="toMain"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="返回"
+        android:textColor="@color/colorPrimaryDark" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
