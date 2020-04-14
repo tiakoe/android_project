@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -82,21 +83,19 @@ public class ExampleActivity02 extends AppCompatActivity {
     }
 }
 
-
 class SubRvAdapter extends RecyclerView.Adapter<SubRvAdapter.MyViewHolder> {
 
-    private Context context;
     private List<String> list;
     private final LayoutInflater inflater;
 
     public SubRvAdapter(Context context, List<String> list) {
-        this.context = context;
         this.list = list;
         inflater = LayoutInflater.from(context);
     }
 
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.example_scroll_conflict_item, parent, false);
         return new MyViewHolder(view);
     }
@@ -112,7 +111,7 @@ class SubRvAdapter extends RecyclerView.Adapter<SubRvAdapter.MyViewHolder> {
         return list.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView tv;
 

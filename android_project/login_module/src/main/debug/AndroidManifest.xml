@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.a.login_module">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".LoginApp"
         android:allowBackup="true"

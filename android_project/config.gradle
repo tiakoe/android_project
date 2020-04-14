@@ -6,6 +6,7 @@ def butterKnifeVersion = "8.5.1"
 def daggerVersion = "2.8"
 
 project.ext {
+
     android = [
             compileSdkVersion: 27,
             minSdkVersion    : 19,

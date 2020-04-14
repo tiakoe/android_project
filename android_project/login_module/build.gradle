@@ -1,5 +1,5 @@
 
-if(debugLogin.toBoolean()){
+if(debugModule.toBoolean()){
     apply plugin: 'com.android.application'
 }else{
     apply plugin: 'com.android.library'
@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
 
-        if (debugLogin.toBoolean()) {
+        if (debugModule.toBoolean()) {
             applicationId "com.a.login_module"
         }
 
@@ -42,7 +42,7 @@ android {
 
     sourceSets {
         main {
-            if (debugLogin.toBoolean()) {
+            if (debugModule.toBoolean()) {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             }else{
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
@@ -80,5 +80,9 @@ dependencies {
 
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 
+    implementation 'com.squareup.retrofit2:retrofit:2.7.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
+
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 
 }
