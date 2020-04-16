@@ -107,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
     public void showLoginActivity(View view) {
         startActivity(new Intent(this, LoginAppActivity.class));
     }
+
+    public void showNoteActivity(View view) {
+        ARouter.getInstance().build("/note/noteMainActivity").navigation();
+    }
 }
 
 

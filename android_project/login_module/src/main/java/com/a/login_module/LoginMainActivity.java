@@ -14,7 +14,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.HashMap;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,8 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Route(path = "/login/loginMainActivity")
 public class LoginMainActivity extends AppCompatActivity {
 
-
-    @BindView(R.id.requestContent)
+    //不可以使用
+    //    @BindView(R.id.requestContent)
     TextView textView;
 
     @Override
@@ -34,7 +33,7 @@ public class LoginMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity_main);
         ButterKnife.bind(this);
-
+        textView = findViewById(R.id.requestContent);
         createRetrofit();
 
     }

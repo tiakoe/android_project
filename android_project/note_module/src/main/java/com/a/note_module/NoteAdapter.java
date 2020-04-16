@@ -73,7 +73,7 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
             super(itemView);
             textViewTitle = itemView.findViewById(R.id.text_view_title);
             textViewDescription = itemView.findViewById(R.id.text_view_description);
-            textViewTime = itemView.findViewById(R.id.text_view_time);
+            textViewTime = itemView.findViewById(R.id.item_text_view_time);
 
             itemView.setOnClickListener(v -> {
                 int position = getAdapterPosition();

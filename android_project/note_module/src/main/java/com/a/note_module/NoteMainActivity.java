@@ -15,9 +15,10 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-
+@Route(path = "/note/noteMainActivity")
 public class NoteMainActivity extends AppCompatActivity {
 
     private NoteViewModel noteViewModel;
@@ -84,8 +85,7 @@ public class NoteMainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        System.out.println("--"+requestCode + " " + resultCode);
+        //        System.out.println("--:" + requestCode + " " + resultCode);
         if (requestCode == ADD_NOTE_REQUEST && resultCode == RESULT_OK) {
             assert data != null;
             String title = data.getStringExtra(EditNoteActivity.EXTRA_TITLE);

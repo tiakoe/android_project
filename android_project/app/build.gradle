@@ -72,6 +72,6 @@ dependencies {
 }
 
 // java控制台输出中文乱码
-//tasks.withType(JavaCompile) {
-//    options.encoding = "UTF-8"
-//}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
