@@ -6,5 +6,6 @@ public class AppConfig {
             "com.a.login_module.LoginApp",
             "com.a.navigation_module.NavigationApp",
             "com.a.note_module.NoteApp",
+            "com.a.http_module.HttpApp",
     };
 }

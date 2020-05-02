@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base_module" />
+            <option value="$PROJECT_DIR$/http_module" />
             <option value="$PROJECT_DIR$/login_module" />
             <option value="$PROJECT_DIR$/navigation_module" />
             <option value="$PROJECT_DIR$/note_module" />
