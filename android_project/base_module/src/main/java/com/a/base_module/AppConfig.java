@@ -7,5 +7,7 @@ public class AppConfig {
             "com.a.navigation_module.NavigationApp",
             "com.a.note_module.NoteApp",
             "com.a.http_module.HttpApp",
+            "com.a.ndk_module.NdkApp",
+            "com.a.fun_module.FunApp",
     };
 }

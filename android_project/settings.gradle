@@ -1,3 +1,5 @@
+include ':fun_module'
+include ':ndk_module'
 include ':app',':base_module',':login_module'
 rootProject.name='My Application'
 include ':navigation_module'

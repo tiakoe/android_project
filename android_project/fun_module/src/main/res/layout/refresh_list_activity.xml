@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.a.fun_module.recycle_page.reload.ReLinearLayoutParent3 xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    >
+
+    <com.a.fun_module.recycle_page.reload.ReLinearLayoutChild3
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="付首付款较多可否就看"
+        android:textSize="20sp" />
+
+    </com.a.fun_module.recycle_page.reload.ReLinearLayoutChild3>
+
+</com.a.fun_module.recycle_page.reload.ReLinearLayoutParent3>

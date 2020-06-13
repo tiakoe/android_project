@@ -2,6 +2,7 @@ package com.a.http_module;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -75,4 +76,19 @@ public class HttpMainActivity extends Activity {
                         }, throwable -> Log.e(TAG, throwable.toString())));
     }
 
+    public void loadImage(View view) {
+        startActivity(new Intent(this, HttpImageActivity.class));
+    }
+
+    public void onDownLoadMax(View view) {
+        startActivity(new Intent(this, HttpDownloadActivity.class));
+    }
+
+    public void onDownLoadMany(View view) {
+        startActivity(new Intent(this, ManyDownLoadActivity.class));
+    }
+
+    public void onAIDLConnection(View view) {
+        startActivity(new Intent(this, AidlMainActivity.class));
+    }
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/down_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/down_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="0%"
+        android:textAlignment="center"
+        android:textSize="28sp" />
+
+    <ProgressBar
+        android:id="@+id/down_ProgressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progress="0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/start_down_btn"
+            android:text="开始下载"
+            android:onClick="onStartDownLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/pause_down_btn"
+            android:text="暂停下载"
+            android:onClick="onPauseDownLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/cancel_down_btn"
+            android:text="取消下载"
+            android:onClick="onCancelDownLoad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

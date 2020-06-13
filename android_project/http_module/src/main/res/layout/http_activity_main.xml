@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    tools:ignore="HardcodedText"
     tools:context="com.a.http_module.HttpMainActivity"
     android:orientation="vertical">
 
@@ -22,5 +23,31 @@
         android:text="点我"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LoadImage"
+        android:onClick="loadImage"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onDownLoadMax"
+        android:text="断点续传(单线程）"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onDownLoadMany"
+        android:text="断点续传（多线程）"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onAIDLConnection"
+        android:text="AIDL通信"
+         />
 
 </LinearLayout>

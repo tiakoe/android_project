@@ -5,6 +5,7 @@
     <application
         android:name=".NavigationApp"
         android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,MissingApplicationIcon">
