@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="getHttpResult"
-        android:text="点我"
+        android:text="Retrofit"
         android:textColor="@color/colorAccent"
         android:textSize="18sp" />
 

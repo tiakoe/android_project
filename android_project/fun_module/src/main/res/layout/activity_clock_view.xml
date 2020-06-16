@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".customview.view.clock.ClockViewActivity">
+
+    <com.a.fun_module.customview.view.clock.ClockView
+        android:id="@+id/clockView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seekBar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp" />
+
+</LinearLayout>

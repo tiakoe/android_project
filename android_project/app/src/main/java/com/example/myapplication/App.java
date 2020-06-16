@@ -5,12 +5,20 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
+import androidx.multidex.MultiDex;
+
 import com.a.base_module.AppConfig;
 import com.a.base_module.BaseApp;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 
 public class App extends BaseApp {
+
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();

@@ -13,7 +13,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-@Route(path = "navigation/mainActivity")
+@Route(path = "/navigation/NavigationActivity")
 public class NavigationActivity extends AppCompatActivity {
 
     @Override

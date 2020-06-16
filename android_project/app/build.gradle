@@ -19,6 +19,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+//        解决65536问题
+        multiDexEnabled true
+
         //    ARouter配置
         javaCompileOptions {
             annotationProcessorOptions {
@@ -54,6 +57,8 @@ dependencies {
 //    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
     implementation 'com.google.code.gson:gson:2.8.6'
 
+//    解决65536问题
+    implementation 'com.android.support:multidex:1.0.3'
 
 //    implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
@@ -62,7 +67,10 @@ dependencies {
     implementation project(':base_module')
     runtimeOnly project(':login_module')
     runtimeOnly project(':note_module')
-
+    runtimeOnly project(':ndk_module')
+    runtimeOnly project(':http_module')
+    runtimeOnly project(':navigation_module')
+    runtimeOnly project(':fun_module')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

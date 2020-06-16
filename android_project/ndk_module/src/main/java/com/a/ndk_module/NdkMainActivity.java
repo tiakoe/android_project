@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
+
+@Route(path = "/ndk/NdkMainActivity")
 public class NdkMainActivity extends Activity {
 
 

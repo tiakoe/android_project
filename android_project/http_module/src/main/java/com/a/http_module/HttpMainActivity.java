@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.a.http_module.http.ApiService;
+import com.alibaba.android.arouter.facade.annotation.Route;
 
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -22,6 +23,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * RxJava2 + Retrofit demo.
  */
+@Route(path = "/http/HttpMainActivity")
 public class HttpMainActivity extends Activity {
     private static final String TAG = "HttpMainActivity";
     private TextView resultTV;

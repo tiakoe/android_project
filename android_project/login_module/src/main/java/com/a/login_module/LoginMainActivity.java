@@ -24,8 +24,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Route(path = "/login/loginMainActivity")
 public class LoginMainActivity extends AppCompatActivity {
 
-    //不可以使用
-    //    @BindView(R.id.requestContent)
+    //不可以使用:错误: 元素值必须为常量表达式
+//    @BindView(R.id.requestContent)
     TextView textView;
 
     @Override

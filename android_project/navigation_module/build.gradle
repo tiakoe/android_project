@@ -2,6 +2,7 @@ if(debugModule.toBoolean()){
     apply plugin: 'com.android.application'
 }else{
     apply plugin: 'com.android.library'
+    apply plugin: 'com.jakewharton.butterknife'
 }
 
 android {
@@ -13,7 +14,7 @@ android {
             applicationId "com.a.navigation_module"
         }
 
-        minSdkVersion 16
+        minSdkVersion Integer.parseInt(MIN_SDK_VERSION)
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"

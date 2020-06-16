@@ -3,6 +3,7 @@ if(debugModule.toBoolean()){
     apply plugin: 'com.android.application'
 }else{
     apply plugin: 'com.android.library'
+    apply plugin: 'com.jakewharton.butterknife'
 }
 
 android {

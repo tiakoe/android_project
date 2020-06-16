@@ -2,7 +2,21 @@
     package="com.a.http_module">
 
     <application>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="com.a.http_module.MyService" />
+            </intent-filter>
+        </service>
+
         <activity android:name=".HttpMainActivity" />
+        <activity android:name=".ManyDownLoadActivity" />
+        <activity android:name=".AidlMainActivity" />
+        <activity android:name=".HttpDownloadActivity" />
+        <activity android:name=".HttpImageActivity" />
     </application>
 
 </manifest>

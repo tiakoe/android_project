@@ -36,7 +36,7 @@ public class DashboardFragment extends Fragment {
 
         SharedViewModel model = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
         root.findViewById(R.id.dash_btn).setOnClickListener(view -> {
-            model.select(new Item("fdf",new Object()));
+            model.select(new Item("这是来自DashFragment发送的内容",new Object()));
         });
 
         return root;

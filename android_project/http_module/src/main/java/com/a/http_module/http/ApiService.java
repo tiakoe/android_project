@@ -18,9 +18,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-/**
- * ApiService
- */
 public class ApiService {
     private static final String TAG = "ApiService";
     private static final String BASE_URL = "https://617bde90-e39e-4c0a-8cc8-47493fa89115.mock" +

@@ -31,11 +31,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ManyDownLoadActivity extends AppCompatActivity {
-    @BindView(R.id.m_down_imageView)
+    @BindView(R2.id.m_down_imageView)
     ImageView mImage;
-    @BindView(R.id.m_down_textView)
+    @BindView(R2.id.m_down_textView)
     TextView mContent;
-    @BindView(R.id.m_down_ProgressBar)
+    @BindView(R2.id.m_down_ProgressBar)
     ProgressBar mProgressBar;
 
     ArrayList<SingleDownloadTask> arrayList;

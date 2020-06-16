@@ -91,14 +91,13 @@ import butterknife.ButterKnife;
 //}
 
 
-
 public class HttpDownloadActivity extends AppCompatActivity {
 
-    @BindView(R.id.down_imageView)
+    @BindView(R2.id.down_imageView)
     ImageView mImage;
-    @BindView(R.id.down_textView)
+    @BindView(R2.id.down_textView)
     TextView mContent;
-    @BindView(R.id.down_ProgressBar)
+    @BindView(R2.id.down_ProgressBar)
     ProgressBar mProgressBar;
 
     private final static String url_resource = "http://image.biaobaiju" +
@@ -116,7 +115,7 @@ public class HttpDownloadActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        File file=new File(HttpDownloadActivity.this.getFilesDir(),"myTestFile.txt");
+        File file = new File(HttpDownloadActivity.this.getFilesDir(), "myTestFile.txt");
         singleDownloadTask = new SingleDownloadTask(url_resource, file.getPath(),
                 mProgressBar, mContent, mImage);
     }
@@ -177,7 +176,7 @@ public class HttpDownloadActivity extends AppCompatActivity {
                     conn = (HttpURLConnection) url.openConnection();
                     if (readLength == 0) {
                         contentLength = conn.getContentLength();
-                        System.out.println("contentLength:"+contentLength);
+                        System.out.println("contentLength:" + contentLength);
                     } else {
                         conn.setRequestProperty("Range", "bytes=" + readLength + "-");
                     }
@@ -188,11 +187,11 @@ public class HttpDownloadActivity extends AppCompatActivity {
                     while (!isPause && ((len = bis.read(bytes, 0, bytes.length))) != -1) {
                         file.write(bytes, 0, len);
                         readLength += len;
-                        System.out.println("readLength"+readLength+"  len"+len);
+                        System.out.println("readLength" + readLength + "  len" + len);
                         mHandler.post(() -> {
                             float rate = ((float) readLength) / contentLength;
                             mProgressBar.setProgress((int) (100 * rate));
-                            mTextView.setText((int)(100 * rate) + "%");
+                            mTextView.setText((int) (100 * rate) + "%");
                         });
                     }
                     isDownloading = false;

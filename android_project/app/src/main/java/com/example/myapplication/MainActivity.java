@@ -111,6 +111,25 @@ public class MainActivity extends AppCompatActivity {
     public void showNoteActivity(View view) {
         ARouter.getInstance().build("/note/noteMainActivity").navigation();
     }
+
+    public void toNDKActivity(View view) {
+        ARouter.getInstance().build( "/ndk/NdkMainActivity").navigation();
+    }
+
+
+    public void toHttpActivity(View view) {
+        ARouter.getInstance().build( "/http/HttpMainActivity").navigation();
+    }
+
+    public void toNavigationActivity(View view) {
+        ARouter.getInstance().build( "/navigation/NavigationActivity").navigation();
+    }
+
+    public void toFunActivity(View view) {
+        ARouter.getInstance().build( "/fun/FunMainActivity").navigation();
+    }
+
+
 }
 
 

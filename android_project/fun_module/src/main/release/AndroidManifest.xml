@@ -3,6 +3,18 @@
 
     <application>
         <activity android:name=".FunMainActivity" />
+        <activity android:name=".customview.view.circleRefresh.CircleRefreshViewActivity" />
+        <activity android:name=".customview.view.clock.ClockViewActivity" />
+        <activity android:name=".customview.view.percentage.PercentageViewActivity" />
+        <activity android:name=".customview.view.plan.PlanViewActivity" />
+        <activity android:name=".customview.view.plan.BaseActivity" />
+        <activity android:name=".customview.view.pointBeat.PointBeatViewActivity" />
+        <activity android:name=".customview.view.rain.RainViewActivity" />
+        <activity android:name=".customview.view.taiji.TaiJiViewActivity" />
+        <activity android:name=".customview.view.wave.WaveViewActivity" />
+        <activity android:name=".customview.view.waveLoading.WaveLoadingViewActivity" />
+        <activity android:name=".customview.CustomViewMainActivity" />
+        <activity android:name=".recycle_page.RefreshListPage" />
     </application>
 
 </manifest>

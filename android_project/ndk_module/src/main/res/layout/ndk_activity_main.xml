@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical"
+    tools:ignore="HardcodedText"
     tools:context="com.a.ndk_module.NdkMainActivity">
 
     <TextView
@@ -12,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="fffff"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+         />
 
     <TextView
         android:id="@+id/tv_res"
