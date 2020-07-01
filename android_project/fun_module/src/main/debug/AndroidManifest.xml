@@ -30,6 +30,8 @@
         <activity android:name=".customview.view.wave.WaveViewActivity" />
         <activity android:name=".customview.view.waveLoading.WaveLoadingViewActivity" />
         <activity android:name=".scroll_view.FunScrollViewActivity" />
+        <activity android:name=".custom_animation.CustomAnimationActivity" />
+        <activity android:name=".custom_animation.MyCircleAnimationActivity" />
 
     </application>
 </manifest>

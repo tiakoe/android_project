@@ -30,12 +30,9 @@ public class ClockView extends BaseView {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action != null) {
-                switch (action) {
-                    //监听时区的变化
-                    case Intent.ACTION_TIMEZONE_CHANGED: {
-                        time = new Time(TimeZone.getTimeZone(intent.getStringExtra("time-zone")).getID());
-                        break;
-                    }
+                //监听时区的变化
+                if (Intent.ACTION_TIMEZONE_CHANGED.equals(action)) {
+                    time = new Time(TimeZone.getTimeZone(intent.getStringExtra("time-zone")).getID());
                 }
             }
         }
@@ -53,15 +50,12 @@ public class ClockView extends BaseView {
 
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_INVALIDATE: {
-                    ClockView view = clockViewWeakReference.get();
-                    if (view != null) {
-                        view.onTimeChanged();
-                        view.invalidate();
-                        sendEmptyMessageDelayed(MSG_INVALIDATE, 1000);
-                    }
-                    break;
+            if (msg.what == MSG_INVALIDATE) {
+                ClockView view = clockViewWeakReference.get();
+                if (view != null) {
+                    view.onTimeChanged();
+                    view.invalidate();
+                    sendEmptyMessageDelayed(MSG_INVALIDATE, 1000);
                 }
             }
         }

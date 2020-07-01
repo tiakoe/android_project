@@ -154,13 +154,15 @@ public class CircleRefreshView extends BaseView {
         circle.x = minRadius;
         circle.radius = minRadius;
 
+        circle = circleList.get(CENTER);
+        circle.x = contentWidth >> 1;
+        circle.radius = maxRadius;
+
         circle = circleList.get(RIGHT);
         circle.x = contentWidth - minRadius;
         circle.radius = minRadius;
 
-        circle = circleList.get(CENTER);
-        circle.x = contentWidth / 2;
-        circle.radius = maxRadius;
+
 
         invalidate();
     }
@@ -282,7 +284,7 @@ public class CircleRefreshView extends BaseView {
             return;
         }
         circleList.get(LEFT).x = minRadius + gap * (1f - fraction);
-        circleList.get(RIGHT).x = contentWidth / 2 + gap * fraction;
+        circleList.get(RIGHT).x = (contentWidth >> 1) + gap * fraction;
         invalidate();
     }
 
