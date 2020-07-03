@@ -1,62 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="HardcodedText"
-    tools:context=".MainActivity"
     android:layout_margin="15dp"
     android:layout_marginStart="15dp"
     android:layout_marginEnd="15dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    app:layout_constraintLeft_toLeftOf="parent"
 
-    <com.to.aboomy.banner.Banner
-        android:id="@+id/banner"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"/>
+    app:layout_constraintRight_toRightOf="parent"
+    tools:context=".home.HomeActivity"
+    tools:ignore="HardcodedText,ScrollViewCount">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/utilList"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:dividerPadding="10dp"-->
-<!--        android:orientation="horizontal" />-->
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/utilList"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:orientation="vertical">
+
+        <com.to.aboomy.banner.Banner
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
 
 
-    <TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="倍数英语点读"
-        android:textSize="30sp"
-        android:textColor="#000000"
-     />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/utilList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/historyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="上次读到 >"
-        android:textSize="22sp"
-        android:padding="10dp"
-       android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/btn_selector"
-        />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="倍数英语点读"
+            android:textColor="#000000"
+            android:textSize="30sp" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_selector"
+            android:padding="10dp"
+            android:text="上次读到 >"
+            android:textSize="22sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -9,11 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.a.myapplication.R;
 
+
 public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_detail);
         WebView webView = findViewById(R.id.webView);
 

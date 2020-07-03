@@ -1,42 +1,38 @@
 package com.a.myapplication.home;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.content.Intent;
+import android.graphics.Canvas;
 import android.graphics.Color;
-import android.os.AsyncTask;
+import android.graphics.Rect;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
 
 import com.a.myapplication.R;
 import com.a.myapplication.adapter.GridAdapter;
 import com.a.myapplication.banner.ImageHolderCreator;
 import com.a.myapplication.base.BaseActivity;
+import com.a.myapplication.detail.DetailActivity;
 import com.a.myapplication.model.ItemData;
 import com.a.myapplication.model.ItemData2;
 import com.a.myapplication.model.ItemData3;
 import com.a.myapplication.model.Result;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.to.aboomy.banner.Banner;
 import com.to.aboomy.banner.IndicatorView;
 
-import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import butterknife.BindView;
 
@@ -54,9 +50,6 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeVie
 
     @BindView(R.id.recycleList)
     RecyclerView recycleList;
-
-    private ArrayList<Result<ItemData>> mData1 = new ArrayList<>();
-    private int mPosition;
 
     private boolean loadMore = false;
 
@@ -103,11 +96,6 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeVie
                 arrayList.add(data.get(i).getImg());
                 System.out.println(list.getData().get(i));
             }
-            //            使用forEach()会产生RxJavaPlugins异常!!!!!
-            //            list.getData().forEach(itemData -> {
-            //                arrayList.add(itemData.getImg());
-            //                System.out.println(itemData.getImg());
-            //            });
         }
         assert list.getData() != null;
         System.out.println(list.getData().toString());
@@ -121,147 +109,75 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeVie
     public void showBannerError(String errorMessage) {
 
     }
-    @SuppressLint("StaticFieldleak")
-    private Bitmap loadImage(Context context,String imgUrl){
-        final Bitmap[] rBitmap = new Bitmap[1];
-        new AsyncTask<Void, Void, Bitmap>() {
-            @Override
-            protected Bitmap doInBackground(Void... params) {
-                Bitmap bitmap = null;
-                try {
-                    bitmap = Glide.with(context)
-                            .asBitmap()
-                            .load(imgUrl)
-                            .submit().get();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                rBitmap[0] =bitmap;
-                return bitmap;
-            }
-
-            @Override
-            protected void onPostExecute(Bitmap bitmap) {
-            }
-        }.execute();
-        return rBitmap[0];
-    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void setUtilListData(Result<ItemData3> list) {
 
-        ArrayList<Bitmap> bitmaps = new ArrayList<>();
+        ArrayList<String> urls = new ArrayList<>();
         ArrayList<String> strings = new ArrayList<>();
 
         if (loadMore) {
             utilList.removeAllViews();
-            bitmaps = new ArrayList<>();
+            urls = new ArrayList<>();
             strings = new ArrayList<>();
         }
 
         ArrayList<ItemData3> temp = list.getData();
-        //        使用会报错
-        //        Collections.sort(temp, Comparator.comparing(ItemData3::getSort));
         for (int i = 0; i < temp.size(); i++) {
             if (!loadMore) {
                 if (i > 2) {
                     break;
                 }
             }
-            View view = this.getLayoutInflater().inflate(R.layout.item, null);
-            //            ImageView imageView = view.findViewById(R.id.itemImage);
-            //            Glide.with(this).load(temp.get(i).getMenu_img())
-            //                    .placeholder(R.drawable.ic_baseline_refresh_24)
-            //                    .error(R.drawable.ic_baseline_error_outline_24)
-            //                    .diskCacheStrategy(DiskCacheStrategy.NONE)//关闭Glide的硬盘缓存机制
-            //                    .into(imageView);
-            //            -------
-//            try {
-                ArrayList<Bitmap> finalBitmaps = new ArrayList<>();
-                bitmaps.add(loadImage(this,temp.get(i).getMenu_img()));
-
-//                Glide.with(this)
-//                        .asBitmap()
-//                        .load(temp.get(i).getMenu_img())
-//                        .placeholder(R.drawable.ic_baseline_refresh_24).error(R
-//                        .drawable.ic_baseline_error_outline_24)
-//                        .error(R.drawable.ic_baseline_error_outline_24)
-//                        .diskCacheStrategy(DiskCacheStrategy.NONE)//关闭Glide的硬盘缓存机制
-//                        .into(new SimpleTarget<Bitmap>() {
-//                            @Override
-//                            public void onResourceReady(@NonNull Bitmap resource,
-//                                                        @Nullable Transition<?
-//                                                                super Bitmap> transition) {
-//                                finalBitmaps.add(resource);
-//                            }
-//                        });
-//                if (finalBitmaps == null || finalBitmaps.size() == 0) {
-//                    bitmaps.add(BitmapFactory.decodeResource(this.getResources(),
-//                            R.drawable.ic_baseline_error_outline_24));
-//                } else {
-//                    bitmaps.addAll(finalBitmaps);
-//                }
-//            } catch (Exception e) {
-//                Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
-//                        R.drawable.ic_baseline_error_outline_24);
-//                bitmaps.add(bitmap);
-//                e.printStackTrace();
-//            }
-
+            urls.add(temp.get(i).getMenu_img());
             strings.add(temp.get(i).getName());
-            //            -------
-
-            //            TextView textView = view.findViewById(R.id.itemText);
-            //            textView.setText(temp.get(i).getName());
-
-            //            Intent it = new Intent(this, DetailActivity.class);
-            //            it.putExtra("url", temp.get(i).getUrl());
-            //            view.setOnClickListener(v -> {
-            //                startActivityForResult(it, 1);
-            //            });
-            //
-            //            utilList.addView(view);
         }
 
-        View view = this.getLayoutInflater().inflate(R.layout.item, null);
-        ImageView imageView = view.findViewById(R.id.itemImage);
-        //        错误用法！
-        //        Glide.with(this)
-        //                .load(R.drawable.ic_baseline_widgets_24)
-        //                .into(imageView);
-
-        //        添加更多图标
-        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
-                R.drawable.ic_baseline_error_outline_24);
-//                imageView.setImageBitmap(bitmap);
         if (!loadMore) {
-            bitmaps.add(bitmap);
+            urls.add("更多");
             strings.add("更多");
         }
-
-        //        --------------
 
         utilList.setLayoutManager(new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL,
                 false));
         utilList.setBackgroundColor(Color.parseColor("#ffffff"));
-        utilList.setAdapter(new GridAdapter(bitmaps, strings));
+        GridAdapter gridAdapter = new GridAdapter(this, urls, strings);
+
+        gridAdapter.setOnItemClickListener((view, position) -> {
+            if (!loadMore && position == 3) {
+                loadMore = true;
+                presenter.getUtil();
+            } else {
+                Intent it = new Intent(this, DetailActivity.class);
+                it.putExtra("url", temp.get(position).getUrl());
+                startActivityForResult(it, 1);
+            }
+        });
+
+        utilList.setAdapter(gridAdapter);
+        utilList.addItemDecoration(new ItemDecoration() {
+            @Override
+            public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent,
+                               @NonNull RecyclerView.State state) {
+                super.onDraw(c, parent, state);
+            }
+
+            @Override
+            public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent,
+                                   @NonNull RecyclerView.State state) {
+                super.onDrawOver(c, parent, state);
+            }
+
+            @Override
+            public void getItemOffsets(@NonNull Rect outRect, @NonNull View view,
+                                       @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                super.getItemOffsets(outRect, view, parent, state);
+
+            }
+        });
         utilList.setItemAnimator(new DefaultItemAnimator());
-
-        //-----------------
-        //        TextView textView = view.findViewById(R.id.itemText);
-        //        textView.setText("更多");
-        //
-        //        view.setOnClickListener(v -> {
-        //            loadMore = true;
-        //            presenter.getUtil();
-        //        });
-        //        //        view.setBackgroundColor(0x999999);
-        //        if (!loadMore) {
-        //            utilList.addView(view);
-        //        }
-
     }
 
     @Override
@@ -269,51 +185,28 @@ public class HomeActivity extends BaseActivity<HomePresenter> implements HomeVie
 
     }
 
+    @SuppressLint("ShowToast")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void setRecycleListData(Result<ItemData2> list) {
         Log.d("dd3", list.toString());
-        ArrayList<Bitmap> bitmaps = new ArrayList<>();
+        ArrayList<String> urls = new ArrayList<>();
         ArrayList<String> strings = new ArrayList<>();
 
         ArrayList<ItemData2> temp = list.getData();
-        //        使用会报错
-        //        Collections.sort(temp, Comparator.comparing(ItemData2::getSort));
 
         for (int i = 0; i < temp.size(); i++) {
-            Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),
-                    R.drawable.ic_baseline_error_outline_24);
-            bitmaps.add(bitmap);
-            //            年级接口访问403，拒绝访问！！！
-            //                        try {
-            //                            Glide.with(this)
-            //                                    .asBitmap()
-            //                                    .load(temp.get(i).getImage())
-            //                                    .placeholder(R.drawable.ic_baseline_refresh_24)
-            //                                    .error(R
-            //                                    .drawable.ic_baseline_error_outline_24)
-            //                                    .into(new SimpleTarget<Bitmap>() {
-            //                                        @Override
-            //                                        public void onResourceReady(@NonNull Bitmap
-            //                                        resource,
-            //                                                                    @Nullable
-            //                                                                    Transition<?
-            //                                                                                                                                        super Bitmap> transition) {
-            //                                            bitmaps.add(resource);
-            //                                        }
-            //                                    });
-            //                        } catch (Exception e) {
-            //                            Bitmap bitmap= BitmapFactory.decodeResource(this
-            //                            .getResources(), R
-            //                            .drawable.ic_baseline_error_outline_24);
-            //                            bitmaps.add(bitmap);
-            //                            e.printStackTrace();
-            //                        }
+            urls.add(temp.get(i).getImage());
             strings.add(temp.get(i).getName());
         }
         recycleList.setLayoutManager(new GridLayoutManager(this, 4, GridLayoutManager.VERTICAL,
                 false));
-        recycleList.setAdapter(new GridAdapter(bitmaps, strings));
+
+        GridAdapter gridAdapter = new GridAdapter(this, urls, strings);
+        gridAdapter.setOnItemClickListener((view, position) -> {
+            Toast.makeText(this, temp.get(position).toString(), Toast.LENGTH_SHORT).show();
+        });
+        recycleList.setAdapter(gridAdapter);
         recycleList.setItemAnimator(new DefaultItemAnimator());
     }
 

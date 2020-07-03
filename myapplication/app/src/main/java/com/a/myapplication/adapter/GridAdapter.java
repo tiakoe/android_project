@@ -1,7 +1,8 @@
 package com.a.myapplication.adapter;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,21 +11,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.a.myapplication.R;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.List;
 
+import static com.a.myapplication.R.drawable.ic_baseline_widgets_24;
+
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Holder> {
 
-    private List<Bitmap> bitmaps;
+    private Context context;
     private List<String> strings;
+    private List<String> urls;
 
-    public GridAdapter(List<Bitmap> bitmaps, List<String> strings) {
-        this.bitmaps = bitmaps;
+    public GridAdapter(Context context, List<String> urls, List<String> strings) {
+        this.context = context;
         this.strings = strings;
-        Log.d("dd", String.valueOf(bitmaps.size()));
+        this.urls = urls;
         Log.d("dd2", String.valueOf(strings.size()));
     }
 
@@ -38,12 +47,33 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Holder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        if (bitmaps.size() != 0) {
-            holder.imageView.setImageBitmap(bitmaps.get(position));
+        if (urls.get(position).equals("更多")) {
+            holder.imageView.setBackgroundResource(ic_baseline_widgets_24);
+
+        } else {
+            Glide.with(context)
+                    .load(urls.get(position))
+                    .placeholder(R.drawable.ic_baseline_refresh_24)
+                    .error(R.drawable.ic_baseline_error_outline_24)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(new SimpleTarget<Drawable>() {
+                        @Override
+                        public void onResourceReady(@NonNull Drawable resource, @Nullable
+                                Transition<
+                                        ? super Drawable> transition) {
+                            holder.imageView.setImageDrawable(resource);
+                        }
+                    });
         }
+
         if (strings.size() != 0) {
             holder.textView.setText(strings.get(position));
         }
+
+        holder.itemView.setOnClickListener((v -> {
+            mOnItemClickListener.onItemClick(holder.itemView, holder.getLayoutPosition());
+        }));
+
     }
 
     @Override
@@ -51,14 +81,24 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.Holder> {
         return strings.size();
     }
 
+    OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener mOnItemClickListener) {
+        this.mOnItemClickListener = mOnItemClickListener;
+    }
+
     static class Holder extends RecyclerView.ViewHolder {
-        private ImageView imageView;
-        private TextView textView;
+        ImageView imageView;
+        TextView textView;
 
         public Holder(View itemView) {
             super(itemView);
-            imageView =  itemView.findViewById(R.id.itemImage);
-            textView =  itemView.findViewById(R.id.itemText);
+            imageView = itemView.findViewById(R.id.itemImage);
+            textView = itemView.findViewById(R.id.itemText);
         }
     }
 }
