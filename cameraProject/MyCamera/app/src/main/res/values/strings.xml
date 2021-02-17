@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MyCamera</string>
-    <string name="ratio_4_3">4:3</string>
-    <string name="ratio_full">Full</string>
-    <string name="ratio_16_9">16:9</string>
-    <string name="ratio_1_1">1:1</string>
-</resources>
